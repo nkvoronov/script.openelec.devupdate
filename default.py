@@ -61,7 +61,7 @@ class Main(object):
 
         self.background = addon.get_bool_setting('background')
         self.verify_files = addon.get_bool_setting('verify_files')
-        
+
         funcs.create_directory(openelec.UPDATE_DIR)
 
         utils.check_update_files(builds.get_build_from_notify_file(),
@@ -87,7 +87,7 @@ class Main(object):
 
         self.confirm()
 
-    def get_installed_build(self):        
+    def get_installed_build(self):
         try:
             return builds.get_installed_build()
         except requests.ConnectionError as e:
@@ -97,11 +97,11 @@ class Main(object):
     def select_build(self):
         build_select = gui.BuildSelectDialog(self.installed_build)
         build_select.doModal()
-        
+
         self.selected_source = build_select.selected_source
         addon.set_setting('source_name', self.selected_source)
         log.log("Selected source: " + str(self.selected_source))
-        
+
         if not build_select:
             log.log("No build selected")
             sys.exit(0)
@@ -123,7 +123,7 @@ class Main(object):
 
         if not utils.yesno(*args):
             sys.exit(0)
-            
+
         self.selected_build = selected_build
 
     def check_archive(self):
@@ -154,13 +154,13 @@ class Main(object):
         filename = self.selected_build.filename
         tar_name = self.selected_build.tar_name
         size = self.selected_build.size
-        
+
         self.download_path = os.path.join(TEMP_PATH, filename)
         self.temp_tar_path = os.path.join(TEMP_PATH, tar_name)
         self.update_tar_path = os.path.join(openelec.UPDATE_DIR, tar_name)
         if self.archive:
             self.archive_tar_path = os.path.join(self.archive_dir, tar_name)
-        
+
         if not self.copy_from_archive():
             if (os.path.isfile(self.download_path) and
                     os.path.getsize(self.download_path) == size):
@@ -204,7 +204,7 @@ class Main(object):
                     funcs.remove_file(self.download_path)
 
             self.maybe_copy_to_archive()
-        
+
             log.log("Moving tar file to " + self.update_tar_path)
             os.renames(self.temp_tar_path, self.update_tar_path)
 
@@ -273,7 +273,7 @@ class Main(object):
 
                 md5sum = tf.extractfile(path_in_tar + '.md5').read().split()[0]
                 log.log("{}.md5 file = {}".format(update_image, md5sum))
-        
+
                 if not progress.md5sum_verified(md5sum, temp_image_path,
                                                 self.background):
                     log.log("{} md5 mismatch!".format(update_image))
@@ -313,12 +313,12 @@ class Main(object):
 
 def new_build_check():
     log.log("Checking for a new build")
-    
+
     check_official = addon.get_bool_setting('check_official')
     check_interval = addon.get_int_setting('check_interval')
 
     autoclose_ms = check_interval * 3540000 # check interval in ms - 1 min
-    
+
     try:
         installed_build = builds.get_installed_build()
     except:

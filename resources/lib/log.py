@@ -12,16 +12,15 @@ except ImportError:
 else:
     xbmc_log = True
 
-
 if xbmc_log:
     def _log(txt, level=xbmc.LOGDEBUG):
         if not (addon.get_setting('debug') == 'false' and level == xbmc.LOGDEBUG):
             msg = '{}: {}'.format(addon.name, txt)
             xbmc.log(msg, level)
-            
+
     def log(txt):
         _log(txt, level=xbmc.LOGDEBUG)
-    
+
     def log_error(txt):
         _log(txt, level=xbmc.LOGERROR)
 else:
@@ -32,7 +31,7 @@ else:
 
     def log(txt):
         logging.debug(txt)
-        
+
     def log_error(txt):
         logging.error(txt)
 

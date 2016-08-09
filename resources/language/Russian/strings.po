@@ -1,0 +1,441 @@
+# Kodi Media Center language file
+# Addon Name: OpenELEC Dev Update
+# Addon id: script.openelec.devupdate
+# Addon Provider: Leopold
+msgid ""
+msgstr ""
+"Project-Id-Version: Kodi Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/xbmc-addons/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgctxt "#32001"
+msgid "Confirm upgrade"
+msgstr "Подтвердить обновление"
+
+msgctxt "#32002"
+msgid "Upgrade"
+msgstr "Обновить"
+
+msgctxt "#32003"
+msgid "{}  to  {} ?"
+msgstr "{}  до  {} ?"
+
+msgctxt "#32004"
+msgid "Confirm downgrade"
+msgstr "Подтвердить понижение"
+
+msgctxt "#32005"
+msgid "Downgrade"
+msgstr "Понижение"
+
+msgctxt "#32006"
+msgid "Confirm install"
+msgstr "Подтвердить установку"
+
+msgctxt "#32007"
+msgid "Build  {}  is already installed."
+msgstr "Сборка {} уже установлена."
+
+msgctxt "#32008"
+msgid "Continue?"
+msgstr "Продолжить?"
+
+msgctxt "#32009"
+msgid "Directory Error"
+msgstr "Ошибка папки"
+
+msgctxt "#32010"
+msgid "{} is not accessible."
+msgstr "{} не доступен."
+
+msgctxt "#32011"
+msgid "Check the archive directory in the addon settings."
+msgstr "Проверьте папку архива в настройках дополнения."
+
+msgctxt "#32012"
+msgid "Unable to create {}."
+msgstr "Невозможно создать {}."
+
+msgctxt "#32013"
+msgid "Check the archive directory permissions."
+msgstr "Проверьте права доступа к папке архива."
+
+msgctxt "#32014"
+msgid "Downloading"
+msgstr "Загрузка"
+
+msgctxt "#32015"
+msgid "Decompressing"
+msgstr "Распаковка"
+
+msgctxt "#32016"
+msgid "Retrieving tar file from archive"
+msgstr "Извлечение tar файл из архива"
+
+msgctxt "#32017"
+msgid "Copying to archive"
+msgstr "Копирование в архив"
+
+msgctxt "#32018"
+msgid "Verifying"
+msgstr "Проверка"
+
+msgctxt "#32019"
+msgid "{} md5 mismatch"
+msgstr "{} md5 несовпадает"
+
+msgctxt "#32020"
+msgid "The {} image is corrupt."
+msgstr "{} образ поврежден."
+
+msgctxt "#32021"
+msgid "The update file will be removed."
+msgstr "Файл обновления будет удален."
+
+msgctxt "#32022"
+msgid "Confirm reboot"
+msgstr "Подтвердить перезагрузку"
+
+msgctxt "#32024"
+msgid "Reboot now to install build  {}?"
+msgstr "Перезагрузить сейчас, чтобы установить сборку {}"
+
+msgctxt "#32025"
+msgid "Build  {}  is ready to install."
+msgstr "Сборка {} готова к установке."
+
+msgctxt "#32026"
+msgid "Build  {}  will install on the next reboot"
+msgstr "Сборка {} будет установлена при следующей перезагрузке"
+
+msgctxt "#32027"
+msgid "A more recent build is available:  {}"
+msgstr "Более свежая сборка доступна: {}"
+
+msgctxt "#32028"
+msgid "Current build:  {}"
+msgstr "Текущая сборка: {}"
+
+msgctxt "#32029"
+msgid "Show builds available to install?"
+msgstr "Показать сборки доступны для установки?"
+
+msgctxt "#32030"
+msgid "Build  {}  is available"
+msgstr "Сборка {} доступна"
+
+msgctxt "#32031"
+msgid "Install History"
+msgstr "История установок"
+
+msgctxt "#32032"
+msgid "Install history not available"
+msgstr "История установок не доступна"
+
+msgctxt "#32034"
+msgid "Update cancelled"
+msgstr "Отменить обновление"
+
+msgctxt "#32035"
+msgid "Build {}"
+msgstr "Сборка {}"
+
+msgctxt "#32036"
+msgid "Open settings"
+msgstr "Открыть настройки"
+
+msgctxt "#32037"
+msgid "Show install history"
+msgstr "Показать историю установок"
+
+msgctxt "#32038"
+msgid "Cancel pending installation"
+msgstr "Отменить отложенную установку"
+
+msgctxt "#32039"
+msgid "No builds were found for {}."
+msgstr "Сборки не найдены для {}."
+
+msgctxt "#32040"
+msgid "Ready to reboot to re-enable overclocking."
+msgstr "Готов перезагрузить и повторно включить разгон."
+
+msgctxt "#32041"
+msgid "Connection Error"
+msgstr "Ошибка подключения"
+
+msgctxt "#32042"
+msgid "Please check you have a connection to the internet."
+msgstr "Пожалуйста, проверьте есть ли у Вас подключение к Интернету."
+
+msgctxt "#32043"
+msgid "URL not found."
+msgstr "URL не найден."
+
+msgctxt "#32044"
+msgid "URL Error"
+msgstr "URL ошибка"
+
+msgctxt "#32045"
+msgid "Please check the URL."
+msgstr "Пожалуйста, проверьте URL."
+
+msgctxt "#32046"
+msgid "Please check the log file."
+msgstr "Пожалуйста, проверьте лог файл."
+
+msgctxt "#32047"
+msgid "Write Error"
+msgstr "Ошибка записи"
+
+msgctxt "#32048"
+msgid "Check the directory."
+msgstr "Проверьте папку."
+
+msgctxt "#32049"
+msgid "Decompression Error"
+msgstr "Ошибка распаковки"
+
+msgctxt "#32050"
+msgid "An error occurred during decompression:"
+msgstr "Произошла ошибка во время распаковки:"
+
+msgctxt "#32052"
+msgid "An installation is pending for {}."
+msgstr "Установка {} находится в ожидании."
+
+msgctxt "#32053"
+msgid "An installation is pending."
+msgstr "Установка находится в ожидании."
+
+msgctxt "#32054"
+msgid "Rebooting"
+msgstr "Перегрузка"
+
+msgctxt "#32055"
+msgid "Reboot now to install the update?"
+msgstr "Перезагрузить сейчас, чтобы установить обновление?"
+
+msgctxt "#32056"
+msgid "Please reboot"
+msgstr "Пожалуйста перезагрузите"
+
+msgctxt "#32057"
+msgid "Rebooting in {} seconds..."
+msgstr "Перегрузка через {} секунд..."
+
+msgctxt "#32058"
+msgid "Rebooting in 1 second..."
+msgstr "Перегрузка через 1 секунду..."
+
+msgctxt "#32059"
+msgid "Rebooting..."
+msgstr "Перегрузка..."
+
+msgctxt "#32060"
+msgid "ERROR: {}"
+msgstr "ОШИБКА: {}"
+
+msgctxt "#32061"
+msgid "Backup"
+msgstr "Резервное копирование"
+
+msgctxt "#32062"
+msgid "Run Backup now?"
+msgstr "Выполнить резервное копирование?"
+
+msgctxt "#32063"
+msgid "This is recommended"
+msgstr "Это рекомендуется"
+
+msgctxt "#32064"
+msgid "Build {} was installed successfully"
+msgstr "Сборка {} была успешно установлена"
+
+msgctxt "#32065"
+msgid "Build {} was not installed"
+msgstr "Сборка {} не была установлена"
+
+msgctxt "#32066"
+msgid "Invalid custom source URL"
+msgstr "Недопустимый URL источника"
+
+msgctxt "#32101"
+msgid "General"
+msgstr "Общие"
+
+msgctxt "#32102"
+msgid "Selected source name"
+msgstr "Выбранное название источника"
+
+msgctxt "#32103"
+msgid "Show progress in background"
+msgstr "Показать прогресс в фоне"
+
+msgctxt "#32104"
+msgid "Archive tar files (for quicker re-installs)"
+msgstr "Архив tar файлов (для более быстрой переустанавки)"
+
+msgctxt "#32105"
+msgid "Archive directory"
+msgstr "Папка архива"
+
+msgctxt "#32106"
+msgid "Verify update files"
+msgstr "Проверка файлов обновления"
+
+msgctxt "#32107"
+msgid "Never"
+msgstr "Никогда"
+
+msgctxt "#32108"
+msgid "Prompt every time"
+msgstr "Запрашивать каждый раз"
+
+msgctxt "#32109"
+msgid "Always"
+msgstr "Всегда"
+
+msgctxt "#32110"
+msgid "Notifications"
+msgstr "Уведомления"
+
+msgctxt "#32111"
+msgid "Enable notifications"
+msgstr "Разрешить уведомления"
+
+msgctxt "#32112"
+msgid "Check only on boot"
+msgstr "Проверять только при загрузке"
+
+msgctxt "#32113"
+msgid "Check interval in hours (requires restart)"
+msgstr "Интервал проверки в часах (требуется перезапуск)"
+
+msgctxt "#32114"
+msgid "Show dialog"
+msgstr "Паказать диалог"
+
+msgctxt "#32115"
+msgid "When not playing video"
+msgstr "Когда не воспроизводится видео"
+
+msgctxt "#32116"
+msgid "Enable for official releases"
+msgstr "Разрешить для официальных релизов"
+
+msgctxt "#32117"
+msgid "Enable reboot confirmation dialog"
+msgstr "Разрешить диалог подтверждения перезагрузки"
+
+msgctxt "#32118"
+msgid "Reboot countdown (seconds)"
+msgstr "Перегрузка отсчет времени (в секундах)"
+
+msgctxt "#32119"
+msgid "Custom Sources"
+msgstr "Пользов. источники"
+
+msgctxt "#32121"
+msgid "Enable"
+msgstr "Разрешить"
+
+msgctxt "#32122"
+msgid "Build type"
+msgstr "Тип сборки"
+
+msgctxt "#32123"
+msgid "Development"
+msgstr "Разработка"
+
+msgctxt "#32124"
+msgid "Release"
+msgstr "Релиз"
+
+msgctxt "#32125"
+msgid "Name"
+msgstr "Название"
+
+msgctxt "#32126"
+msgid "URL"
+msgstr "URL"
+
+msgctxt "#32127"
+msgid "Subdirectory"
+msgstr "Подпапка"
+
+msgctxt "#32128"
+msgid "Other"
+msgstr "Другое"
+
+msgctxt "#32129"
+msgid "Enable subdirectory"
+msgstr "Разрешить подпапку"
+
+msgctxt "#32130"
+msgid "Other subdirectory"
+msgstr "Другие подпапки"
+
+msgctxt "#32131"
+msgid "Advanced"
+msgstr "Расширенный"
+
+msgctxt "#32132"
+msgid "Override installed build type"
+msgstr "Переопределить установленный тип сборки"
+
+msgctxt "#32133"
+msgid "Build type to install"
+msgstr "Тип сборки для установки"
+
+msgctxt "#32134"
+msgid "Disable overclocking during update"
+msgstr "Отключить разгон во время обновления"
+
+msgctxt "#32135"
+msgid "Also update extlinux"
+msgstr "Также обновить extlinux"
+
+msgctxt "#32136"
+msgid "Set HTTP timeout"
+msgstr "Установить тайм-аут HTTP"
+
+msgctxt "#32137"
+msgid "Timeout (seconds)"
+msgstr "Тайм-аут (в секундах)"
+
+msgctxt "#32138"
+msgid "Enable debug logging"
+msgstr "Разрешить отладку"
+
+msgctxt "#32139"
+msgid "Set custom build date format"
+msgstr "Установить пользовательский формат даты для сборки"
+
+msgctxt "#32140"
+msgid "Date format"
+msgstr "Формат даты"
+
+msgctxt "#32141"
+msgid "Select to show the list of available builds"
+msgstr "Выберите, чтобы отобразить список доступных сборок"
+
+msgctxt "#32142"
+msgid "Custom Source 1"
+msgstr "Пользовательский источник 1"
+
+msgctxt "#32143"
+msgid "Custom Source 2"
+msgstr "Пользовательский источник 2"
+
+msgctxt "#32144"
+msgid "Custom Source 3"
+msgstr "Пользовательский источник 3"

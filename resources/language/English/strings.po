@@ -427,3 +427,15 @@ msgstr ""
 msgctxt "#32141"
 msgid "Select to show the list of available builds"
 msgstr ""
+
+msgctxt "#32142"
+msgid "Custom Source 1"
+msgstr ""
+
+msgctxt "#32143"
+msgid "Custom Source 2"
+msgstr ""
+
+msgctxt "#32144"
+msgid "Custom Source 3"
+msgstr ""
