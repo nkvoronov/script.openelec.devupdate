@@ -493,6 +493,9 @@ def sources():
 
         _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://www.dropbox.com/sh/bmbp21focleabbm/AACm5f0_JZ1lDCkSszT-Yaqaa?dl=0",
                                                     extractor=YDBuildLinkExtractor)
+                                                    
+        _sources["YLLOW_DRAGON Builds Devel"] = BuildsURL("https://www.dropbox.com/sh/ty2z4ua1du7y1jm/AADV8XKDfPjcHxlVmagQqGO1a?dl=0",
+                                                          extractor=YDBuildLinkExtractor)
 
     return _sources
 
