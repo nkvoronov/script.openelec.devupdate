@@ -15,6 +15,7 @@ from urllib2 import unquote
 from bs4 import BeautifulSoup, SoupStrainer
 import requests
 import html2text
+import json
 
 import openelec, funcs, log
 
@@ -218,7 +219,6 @@ class BaseExtractor(object):
     def __repr__(self):
         return "{}('{}')".format(self.__class__.__name__, self.url)
 
-
 class BuildLinkExtractor(BaseExtractor):
     """Base class for extracting build links from a URL"""
     BUILD_RE = (".*ELEC.*-{arch}-(?:\d+\.\d+-|)[a-zA-Z]+-(\d+)"
@@ -245,11 +245,49 @@ class BuildLinkExtractor(BaseExtractor):
         href = link['href']
         return BuildLink(self.url, href, *self.build_re.match(href).groups()[:2])
 
+class BuildLinkExtractorDropBox(BaseExtractor):
+    """EX Base class for extracting build links from a URL"""
+    BUILD_RE = (".*ELEC.*-{arch}-(?:\d+\.\d+-|)[a-zA-Z]+-(\d+)"
+                "-r\d+[a-z]*-g([0-9a-z]+)\.tar(|\.bz2)")
+    CSS_CLASS = None
+
+    def __iter__(self):
+        self.build_re = re.compile(self.BUILD_RE.format(arch=arch))
+
+        html = self._text()
+        results =  re.compile('window.MODULE_CONFIG = \{(.+?)\};').findall(html)
+        parsed_string = json.loads('{' + results[0] + '}')
+
+        if parsed_string['modules'].keys()[0] == 'dirty':
+
+            args = ['a']
+            if self.CSS_CLASS is not None:
+                args.append(self.CSS_CLASS)
+
+            soup = BeautifulSoup(html, 'html.parser',
+                                 parse_only=SoupStrainer(*args, href=self.build_re))
+
+            for link in soup.contents:
+                l = self._create_link(link)
+                if l:
+                    yield l
+        else:
+
+            for link in parsed_string['modules']['clean']['init_react']['components'][0]['props']['contents']['files']:
+                l = self._create_link(link)
+                if l:
+                    yield l
+
+    def _create_link(self, link):
+        href = link['href']
+        log.log(href)
+        return BuildLink(self.url, href, *self.build_re.match(href).groups()[:2])
+
 
 class DropboxBuildLinkExtractor(BuildLinkExtractor):
     CSS_CLASS = 'filename-link'
 
-class YDBuildLinkExtractor(BuildLinkExtractor):
+class YDBuildLinkExtractor(BuildLinkExtractorDropBox):
     CSS_CLASS = 'file-link filename-link'
     BUILD_RE = ".*ELEC.*-{arch}-[\d\.]+-(\d+)-r\d+[a-z]*-g([0-9a-z]+)\.tar(|\.bz2)"
 
@@ -493,7 +531,7 @@ def sources():
 
         _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://www.dropbox.com/sh/bmbp21focleabbm/AACm5f0_JZ1lDCkSszT-Yaqaa?dl=0",
                                                     extractor=YDBuildLinkExtractor)
-                                                    
+
         _sources["YLLOW_DRAGON Builds Devel"] = BuildsURL("https://www.dropbox.com/sh/ty2z4ua1du7y1jm/AADV8XKDfPjcHxlVmagQqGO1a?dl=0",
                                                           extractor=YDBuildLinkExtractor)
 
