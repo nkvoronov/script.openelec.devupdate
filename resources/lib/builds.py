@@ -274,9 +274,10 @@ class BuildLinkExtractorDropBox(BaseExtractor):
         else:
 
             for link in parsed_string['modules']['clean']['init_react']['components'][0]['props']['contents']['files']:
-                l = self._create_link(link)
-                if l:
-                    yield l
+                if re.search(self.build_re,link['href']):
+                    l = self._create_link(link)
+                    if l:
+                        yield l
 
     def _create_link(self, link):
         href = link['href']
