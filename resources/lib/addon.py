@@ -1,6 +1,6 @@
 import xbmc, xbmcaddon
 
-__addon = xbmcaddon.Addon('script.openelec.devupdate')
+__addon = xbmcaddon.Addon('script.elec.devupdate')
 
 info = __addon.getAddonInfo
 get_setting = __addon.getSetting
