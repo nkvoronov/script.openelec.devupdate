@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="script.openelec.devupdate"
-       name="OpenELEC Dev Update"
-       version="14.38.3"
+<addon id="script.elec.devupdate"
+       name="ELEC Dev Update"
+       version="14.38.4"
        provider-name="Leopold, YLLOW_DRAGON">
   <requires>
     <import addon="xbmc.python" version="2.13.0"/>
@@ -26,7 +26,8 @@
     <disclaimer lang="ru">Сборки в разработке часто имеют некоторые ошибки и сбои могут происходить довольно часто. Всегда делайте резервную копию ваших пользовательских данных при установке сборок в разработке.</disclaimer>
     <forum>http://openelec.tv/forum/128-addons/49855</forum>
     <website>http://ls80.github.io/script.openelec.devupdate</website>
-    <source>http://github.com/LS80/script.openelec.devupdate.git</source>
+    <email>nkvoronov@gmail.com</email>
+    <source>https://github.com/nkvoronov/script.openelec.devupdate.git</source>
     <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
   </extension>
 </addon>
