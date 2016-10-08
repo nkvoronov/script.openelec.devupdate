@@ -17,11 +17,11 @@ import requests
 import html2text
 import json
 
-import openelec, funcs, log
+import elec, funcs, log
 
 
 timeout = None
-arch = openelec.ARCH
+arch = elec.ARCH
 date_fmt = '%d %b %y'
 
 
@@ -30,7 +30,7 @@ class BuildURLError(Exception):
 
 
 class Build(object):
-    """Holds information about an OpenELEC build and defines how to compare them,
+    """Holds information about an ELEC build and defines how to compare them,
        produce a unique hash for dictionary keys, and print them.
     """
     DATETIME_FMT = '%Y%m%d%H%M%S'
@@ -123,9 +123,9 @@ class Release(Build):
     def maybe_get_tags(cls):
         if cls.tags is None:
             cls.tags = {}
-            if openelec.OS_RELEASE['NAME'] == "OpenELEC":
+            if elec.OS_RELEASE['NAME'] == "OpenELEC":
                 html = requests.get("http://github.com/OpenELEC/OpenELEC.tv/releases").text
-            elif openelec.OS_RELEASE['NAME'] == "LibreELEC":
+            elif elec.OS_RELEASE['NAME'] == "LibreELEC":
                 html = requests.get("http://github.com/LibreELEC/LibreELEC.tv/tags").text
             while True:
                 cls.tags.update(cls.get_tags_page_dict(html))
@@ -182,14 +182,14 @@ class BuildLinkBase(object):
 
 
 class BuildLink(Build, BuildLinkBase):
-    """Holds information about a link to an OpenELEC build."""
+    """Holds information about a link to an ELEC build."""
     def __init__(self, baseurl, link, datetime_str, revision):
         BuildLinkBase.__init__(self, baseurl, link)
         Build.__init__(self, datetime_str, version=revision)
 
 
 class ReleaseLink(Release, BuildLinkBase):
-    """Class for links to OpenELEC release downloads."""
+    """Class for links to ELEC release downloads."""
     def __init__(self, baseurl, link, release):
         BuildLinkBase.__init__(self, baseurl, link)
         Release.__init__(self, release)
@@ -308,9 +308,9 @@ class ReleaseLinkExtractor(BuildLinkExtractor):
 
 
 class OfficialReleaseLinkExtractor(ReleaseLinkExtractor):
-    if openelec.OS_RELEASE['NAME'] == "OpenELEC":
+    if elec.OS_RELEASE['NAME'] == "OpenELEC":
         BASE_URL = "http://releases.openelec.tv"
-    elif openelec.OS_RELEASE['NAME'] == "LibreELEC":
+    elif elec.OS_RELEASE['NAME'] == "LibreELEC":
         BASE_URL = "http://releases.libreelec.tv"
 
 
@@ -476,12 +476,12 @@ def get_installed_build():
     """Return the currently installed build object."""
     DEVEL_RE = ".*-(\d+)-r\d+-g([a-z0-9]+)"
 
-    if openelec.OS_RELEASE['NAME'] == "OpenELEC":
-        version = openelec.OS_RELEASE['VERSION']
-        if 'MILHOUSE_BUILD' in openelec.OS_RELEASE:
+    if elec.OS_RELEASE['NAME'] == "OpenELEC":
+        version = elec.OS_RELEASE['VERSION']
+        if 'MILHOUSE_BUILD' in elec.OS_RELEASE:
             DEVEL_RE = "devel-(\d+)-[r#](\d{4}[a-z]?)"
-    elif openelec.OS_RELEASE['NAME'] == "LibreELEC":
-        version = openelec.OS_RELEASE['VERSION']
+    elif elec.OS_RELEASE['NAME'] == "LibreELEC":
+        version = elec.OS_RELEASE['VERSION']
     else:
         # For testing on a non OpenELEC machine
         version = 'devel-20150503135721-r20764-gbfd3782'
@@ -501,7 +501,7 @@ def sources():
     """
     _sources = OrderedDict()
 
-    if openelec.OS_RELEASE['NAME'] == "OpenELEC":
+    if elec.OS_RELEASE['NAME'] == "OpenELEC":
 
         builds_url = BuildsURL("http://snapshots.openelec.tv",
                                info_extractors=[CommitInfoExtractor()])
@@ -509,7 +509,7 @@ def sources():
 
         _sources["Milhouse Builds"] = MilhouseBuildsURL()
 
-        if openelec.debug_system_partition():
+        if elec.debug_system_partition():
             _sources["Milhouse Builds (debug)"] = MilhouseBuildsURL(subdir="debug")
 
         if arch.startswith("RPi"):
@@ -525,7 +525,7 @@ def sources():
         _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://www.dropbox.com/sh/rb8zwx8dog9u593/AADsKisWoX15tfzd0_B22gfUa?dl=0",
                                                     extractor=YDBuildLinkExtractor)
 
-    elif openelec.OS_RELEASE['NAME'] == "LibreELEC":
+    elif elec.OS_RELEASE['NAME'] == "LibreELEC":
 
         _sources["Official Releases"] = BuildsURL("http://libreelec.mirrors.uk2.net/releases",
                                                   extractor=OfficialReleaseLinkExtractor)
