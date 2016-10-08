@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="script.elec.devupdate"
-       name="OpenELEC Dev Update"
+       name="ELEC Dev Update"
        version="14.38.4"
        provider-name="Leopold, YLLOW_DRAGON">
   <requires>
