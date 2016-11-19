@@ -189,7 +189,7 @@ class BuildLink(Build, BuildLinkBase):
 
 
 class ReleaseLink(Release, BuildLinkBase):
-    """Class for links to OpenELEC release downloads."""
+    """Class for links to ELEC release downloads."""
     def __init__(self, baseurl, link, release):
         BuildLinkBase.__init__(self, baseurl, link)
         Release.__init__(self, release)
