@@ -27,7 +27,7 @@ from contextlib import closing
 import xbmc, xbmcgui, xbmcaddon, xbmcvfs
 import requests
 
-from resources.lib import (progress, script_exceptions, utils, builds, elec,
+from resources.lib import (progress, script_exceptions, utils, builds, openelec,
                            rpi, addon, log, gui, funcs)
 from resources.lib.addon import L10n
 

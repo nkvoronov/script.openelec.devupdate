@@ -14,16 +14,21 @@
                 <description>Background image</description>
                 <width>1100</width>
                 <texture colordiffuse="f6111111">white.png</texture>
+                    <!--
+                    <bordertexture colordiffuse="ffb2afa8">white.png</bordertexture>
+                    <colordiffuse>f0111111</colordiffuse>
+                    <bordersize>2</bordersize>
+                    -->
             </control>
 
             <control type="group">
                 <description>Bottom panel</description>
                 <top>940</top>
-                    <control type="image">
-                        <description>Separator</description>
-                        <top>0</top>
-                        <texture colordiffuse="99555555">white.png</texture>
-                    </control>
+	            <control type="image">
+	                <description>Separator</description>
+	                <top>0</top>
+	                <texture colordiffuse="99555555">white.png</texture>
+	            </control>
                 <control type="textbox" id="200">
                     <description>Info area</description>
                     <left>40</left>
@@ -102,12 +107,12 @@
                         <texturenofocus colordiffuse="ff555555">cancel.png</texturenofocus>
                     </control>
                 </control>
-
+                
                 <control type="group">
                     <description>Source selection</description>
                     <left>0</left>
                     <top>280</top>
-
+        
                     <control type="list" id="10">
                         <left>0</left>
                         <top>25</top>
@@ -142,25 +147,25 @@
                             <control type="group">
                                 <animation effect="slide" start="0,35" end="0,0" time="200" reversible="false" tween="back" easing="out" condition="Container(10).OnPrevious">Focus</animation>
                                 <animation effect="slide" start="0,-35" end="0,0" time="200" reversible="false" tween="back" easing="out" condition="Container(10).OnNext">Focus</animation>
-
+                                
                                 <control type="image">
                                     <visible>!Control.HasFocus(10) + String.IsEqual(ListItem.Label2, selected)</visible>
                                     <texture border="5">white.png</texture>
                                     <colordiffuse>f02b2b2b</colordiffuse>
                                 </control>
-
+                                
                                 <control type="image">
                                     <visible>Control.HasFocus(10) + String.IsEqual(ListItem.Label2, selected)</visible>
                                     <texture border="5">white.png</texture>
                                     <colordiffuse>502b2b2b</colordiffuse>
                                 </control>
-
+                                    
                                 <control type="image">
                                     <!-- #88bde1 -->
                                     <visible>Control.HasFocus(10)</visible>
                                     <texture border="12">highlight.png</texture>
                                 </control>
-
+                                
                                 <control type="label">
                                     <visible>!String.IsEqual(ListItem.Label2, selected)</visible>
                                     <width>680</width>
@@ -169,7 +174,7 @@
                                     <textcolor>f0b2afa8</textcolor>
                                     <info>ListItem.Label</info>
                                 </control>
-
+                                
                                 <control type="label">
                                     <visible>String.IsEqual(ListItem.Label2, selected)</visible>
                                     <width>680</width>
@@ -250,7 +255,7 @@
                                     <textcolor>ffffffff</textcolor>
                                     <info>ListItem.Label</info>
                                 </control>
-
+                                
                                 <control type="label">
                                     <visible>!Control.HasFocus(20)</visible>
                                     <left>0</left>
@@ -278,7 +283,7 @@
                                     <textcolor>ffb2afa8</textcolor>
                                     <info>ListItem.Label2</info>
                                 </control>
-
+                               
                                 <control type="image">
                                     <left>340</left>
                                     <top>10</top>
