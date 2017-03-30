@@ -29,6 +29,12 @@ if OS_RELEASE['NAME'] != "OpenELEC" and OS_RELEASE['NAME'] != "LibreELEC":
 
 UPDATE_IMAGES = ('SYSTEM', 'KERNEL')
 
+def dist():
+    dist = OS_RELEASE['NAME']
+    if dist in ("LibreELEC", "OpenELEC"):
+        return dist.lower()
+    else:
+        return "libreelec"
 
 def mount_readwrite():
     subprocess.check_call(['mount', '-o', 'rw,remount', '/flash'])
