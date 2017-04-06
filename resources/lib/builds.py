@@ -124,7 +124,7 @@ class Release(Build):
         if cls.tags is None:
             cls.tags = {}
             releases_url = "http://github.com/{dist}/{dist}.tv/tags".format(
-                                dist=openelec.dist())
+                                dist=elec.dist())
             html = requests.get(releases_url).text
             while True:
                 cls.tags.update(cls.get_tags_page_dict(html))
@@ -424,7 +424,7 @@ class BuildsURL(object):
 class MilhouseBuildsURL(BuildsURL):
     def __init__(self, subdir="master"):
         self.subdir = subdir
-        url = "http://milhouse.{dist}.tv/builds/".format(dist=openelec.dist().lower())
+        url = "http://milhouse.{dist}.tv/builds/".format(dist=elec.dist().lower())
         super(MilhouseBuildsURL, self).__init__(
             url, os.path.join(subdir, arch.split('.')[0]),
             MilhouseBuildLinkExtractor, list(get_milhouse_build_info_extractors()))
@@ -468,6 +468,8 @@ def sources():
                             info_extractors=[CommitInfoExtractor()])
         _sources["Official Snapshot Builds"] = builds_url
 
+        _sources["Official Releases"] = BuildsURL("http://{dist}.mirrors.uk2.net".format(dist=elec.dist()),
+                                                    extractor=OfficialReleaseLinkExtractor)        
         if arch.startswith("RPi"):
             builds_url = BuildsURL("http://resources.pichimney.com/OpenELEC/dev_builds",
                                    info_extractors=[CommitInfoExtractor()])
@@ -475,6 +477,7 @@ def sources():
 
         _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://www.dropbox.com/sh/rb8zwx8dog9u593/AADsKisWoX15tfzd0_B22gfUa?dl=0",
                                                     extractor=YDBuildLinkExtractor)
+                                                    
 
     elif elec.OS_RELEASE['NAME'] == "LibreELEC":
 
@@ -483,18 +486,15 @@ def sources():
 
         _sources["YLLOW_DRAGON Builds Devel"] = BuildsURL("https://www.dropbox.com/sh/ty2z4ua1du7y1jm/AADV8XKDfPjcHxlVmagQqGO1a?dl=0",
                                                           extractor=YDBuildLinkExtractor)
-    _sources["Official Releases"] = BuildsURL(
-        "http://{dist}.mirrors.uk2.net".format(dist=elec.dist()),
-        extractor=OfficialReleaseLinkExtractor)
+
 
     _sources["Official Archive"] = BuildsURL(
         "http://archive.{dist}.tv".format(dist=elec.dist()),
-		extractor=ReleaseLinkExtractor)
-
+        extractor=ReleaseLinkExtractor)
+        
     _sources["Milhouse Builds"] = MilhouseBuildsURL()
 
-
-    if openelec.debug_system_partition():
+    if elec.debug_system_partition():
         _sources["Milhouse Builds (debug)"] = MilhouseBuildsURL(subdir="debug")
 
     return _sources
