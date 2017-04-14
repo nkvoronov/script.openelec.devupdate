@@ -250,7 +250,6 @@ class DropboxBuildLinkExtractor(BuildLinkExtractor):
     CSS_CLASS = 'filename-link'
 
 class YDBuildLinkExtractor(BuildLinkExtractor):
-    CSS_CLASS = 'sl-file-link'
     BUILD_RE = ".*{dist}.*-{arch}-[\d\.]+-(\d+)-r\d+[a-z]*-g([0-9a-z]+)\.tar(|\.bz2)"
 
 class ReleaseLinkExtractor(BuildLinkExtractor):
@@ -475,14 +474,8 @@ def sources():
                                    info_extractors=[CommitInfoExtractor()])
             _sources["Chris Swan RPi Builds"] = builds_url
 
-        _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://github.com/nkvoronov/OpenELEC.tv/tags",
-                                                    extractor=ReleaseLinkExtractor)
-                                                    
-
-    elif elec.OS_RELEASE['NAME'] == "LibreELEC":
-
-        _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://github.com/nkvoronov/LibreELEC.tv/tags",
-                                                    extractor=ReleaseLinkExtractor)
+    _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://github.com/nkvoronov/{dist}.tv/releases".format(dist=elec.OS_RELEASE['NAME']),
+                                                extractor=YDBuildLinkExtractor)
 
     _sources["Official Archive"] = BuildsURL(
         "http://archive.{dist}.tv".format(dist=elec.dist()),
