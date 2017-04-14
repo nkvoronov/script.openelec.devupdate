@@ -475,18 +475,14 @@ def sources():
                                    info_extractors=[CommitInfoExtractor()])
             _sources["Chris Swan RPi Builds"] = builds_url
 
-        _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://www.dropbox.com/sh/rb8zwx8dog9u593/AADsKisWoX15tfzd0_B22gfUa?dl=0",
-                                                    extractor=YDBuildLinkExtractor)
+        _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://github.com/nkvoronov/OpenELEC.tv/tags",
+                                                    extractor=ReleaseLinkExtractor)
                                                     
 
     elif elec.OS_RELEASE['NAME'] == "LibreELEC":
 
-        _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://www.dropbox.com/sh/bmbp21focleabbm/AACm5f0_JZ1lDCkSszT-Yaqaa?dl=0",
-                                                    extractor=YDBuildLinkExtractor)
-
-        _sources["YLLOW_DRAGON Builds Devel"] = BuildsURL("https://www.dropbox.com/sh/ty2z4ua1du7y1jm/AADV8XKDfPjcHxlVmagQqGO1a?dl=0",
-                                                          extractor=YDBuildLinkExtractor)
-
+        _sources["YLLOW_DRAGON Builds"] = BuildsURL("https://github.com/nkvoronov/LibreELEC.tv/tags",
+                                                    extractor=ReleaseLinkExtractor)
 
     _sources["Official Archive"] = BuildsURL(
         "http://archive.{dist}.tv".format(dist=elec.dist()),
