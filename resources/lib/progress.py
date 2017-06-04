@@ -147,7 +147,7 @@ def md5sum_verified(md5sum_compare, path, background):
     else:
         verify_progress = Progress()
 
-    verify_progress.create("Verifying", line1=os.path.basename(path))
+    verify_progress.create(L10n(32018), line1=os.path.basename(path))
 
     BLOCK_SIZE = 8192
 
