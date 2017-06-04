@@ -172,8 +172,8 @@ class BuildLinkBase(object):
 
         # Get the actual filename
         self.filename = unquote(os.path.basename(urlparse.urlparse(response.url).path))
-		# Fix filename
-		self.filename = re.findall("filename=(.+)", response.headers['Content-Disposition'])[0]
+        # Fix filename
+        self.filename = re.findall("filename=(.+)", response.headers['Content-Disposition'])[0]
 
         name, ext = os.path.splitext(self.filename)
         self.tar_name = self.filename if ext == '.tar' else name
