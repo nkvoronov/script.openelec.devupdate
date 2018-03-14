@@ -8,16 +8,13 @@ OS_RELEASE = dict(line.strip().replace('"', '').split('=')
                   for line in open('/etc/os-release'))
 
 try:
-    if OS_RELEASE['NAME'] == "OpenELEC":
-        ARCH = OS_RELEASE['OPENELEC_ARCH']
-    elif OS_RELEASE['NAME'] == "LibreELEC":
+	if OS_RELEASE['NAME'] == "LibreELEC":
         ARCH = OS_RELEASE['LIBREELEC_ARCH']
 except KeyError:
-    # Enables testing on non OpenELEC machines
     ARCH = 'RPi.arm'
 
 UPDATE_DIR = os.path.join(os.path.expanduser('~'), '.update')
-if OS_RELEASE['NAME'] != "OpenELEC" and OS_RELEASE['NAME'] != "LibreELEC":
+if OS_RELEASE['NAME'] != "LibreELEC":
     try:
         import xbmc
     except ImportError:
@@ -31,7 +28,7 @@ UPDATE_IMAGES = ('SYSTEM', 'KERNEL')
 
 def dist():
     dist = OS_RELEASE['NAME']
-    if dist in ("LibreELEC", "OpenELEC"):
+    if dist in ("LibreELEC"):
         return dist.lower()
     else:
         return "libreelec"

@@ -143,7 +143,7 @@ else:
     if links:
         build = get_choice(links, build_suffix, reverse=True)
         remote = build.remote_file()
-        file_path = os.path.join(elec.UPDATE_DIR, build.filename)
+        file_path = os.path.join(libreelec.UPDATE_DIR, build.filename)
         print
         print "Downloading {0} ...".format(build.url)
         try:
@@ -156,7 +156,7 @@ else:
             sys.exit()
 
         if build.compressed:
-            tar_path = os.path.join(elec.UPDATE_DIR, build.tar_name)
+            tar_path = os.path.join(libreelec.UPDATE_DIR, build.tar_name)
             size = os.path.getsize(file_path)
             print
             print "Decompressing {0} ...".format(file_path)

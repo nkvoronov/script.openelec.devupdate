@@ -44,17 +44,6 @@
                 <width>680</width>
 
                 <control type="image">
-                    <description>OpenELEC logo</description>
-                    <top>20</top>
-                    <left>60</left>
-                    <texture>logotype_openelec.png</texture>
-                    <aspectratio>keep</aspectratio>
-                    <height>152</height>
-                    <width>482</width>
-                    <visible>System.HasAddon(service.openelec.settings)</visible>
-                </control>
-
-                <control type="image">
                     <description>LibreELEC logo</description>
                     <top>20</top>
                     <left>60</left>
@@ -62,7 +51,6 @@
                     <aspectratio>keep</aspectratio>
                     <height>152</height>
                     <width>482</width>
-                    <visible>System.HasAddon(service.libreelec.settings)</visible>
                 </control>
 
                 <control type="label" id="100">

@@ -5,7 +5,7 @@ import sys
 import stat
 import glob
 
-import log, elec
+import log, libreelec
 
 
 TEMP_DIR = os.path.expanduser('~')
@@ -72,8 +72,8 @@ def schedule_extlinux_update():
 def maybe_update_extlinux():
     if os.path.isfile(UPDATE_EXTLINUX_FILE):
         log.log("Updating extlinux")
-        with elec.write_context():
-            elec.update_extlinux()
+        with libreelec.write_context():
+            libreelec.update_extlinux()
         remove_file(UPDATE_EXTLINUX_FILE)
 
 
@@ -110,4 +110,4 @@ def maybe_create_symlink(path, symlink_path):
 
 
 def update_files():
-    return glob.glob(os.path.join(elec.UPDATE_DIR, '*tar'))
+    return glob.glob(os.path.join(libreelec.UPDATE_DIR, '*tar'))

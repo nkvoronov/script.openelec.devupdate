@@ -23,7 +23,7 @@ OVERCLOCK_RE = re.compile(r'^([ \t]*({})[ \t]*=)'.format('|'.join(OVERCLOCK_SETT
 def maybe_restore_config():
     if os.path.exists(CONFIG_BACKUP_PATH):
         log.log("Re-enabling overclocking")
-        with elec.write_context():
+        with libreelec.write_context():
             xbmcvfs.copy(CONFIG_BACKUP_PATH, CONFIG_PATH)
         xbmcvfs.delete(CONFIG_BACKUP_PATH)
         if progress.reboot_countdown(L10n(32054), L10n(32040),
@@ -36,7 +36,7 @@ def maybe_restore_config():
 
 
 def maybe_disable_overclock():
-    if (elec.ARCH.startswith('RPi') and
+    if (libreelec.ARCH.startswith('RPi') and
         os.path.isfile(CONFIG_PATH) and
         addon.get_bool_setting('disable_overclock')):
 
@@ -51,5 +51,5 @@ def maybe_disable_overclock():
             def repl(m):
                 return '#' + m.group(1)
 
-            with elec.write_context(), open(CONFIG_PATH, 'w') as b:
+            with libreelec.write_context(), open(CONFIG_PATH, 'w') as b:
                 b.write(re.sub(OVERCLOCK_RE, repl, config))
